@@ -1,0 +1,7 @@
+{
+  "name": "osism-commit",
+  "description": "OpenStack-style git commits with OSISM conventions (skill + hook)",
+  "author": {
+    "name": "OSISM GmbH"
+  }
+}
