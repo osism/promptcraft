@@ -1,0 +1,16 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "promptcraft",
+  "description": "Skills, hooks, and configuration for OSISM development",
+  "owner": {
+    "name": "OSISM GmbH"
+  },
+  "plugins": [
+    {
+      "name": "osism-commit",
+      "description": "OpenStack-style git commits with OSISM conventions",
+      "category": "development",
+      "source": "./plugins/osism-commit"
+    }
+  ]
+}
