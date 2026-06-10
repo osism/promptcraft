@@ -76,11 +76,24 @@ Only include trailers that are actually relevant. Do not invent bug numbers or r
 **Always include the following trailers (in this exact order, Signed-off-by MUST be last):**
 
 ```
-AI-assisted: Claude Code
+Assisted-by: AGENT_NAME[:MODEL_VERSION]
 Signed-off-by: <user name> <user email>
 ```
 
-- `AI-assisted: Claude Code` is an OSISM project convention for commits created with Claude Code.
+- `Assisted-by` is required on commits created with the help of an AI coding
+  assistant.
+  - `AGENT_NAME` is the name of the AI assistant that produced the change.
+    Identify yourself: if you are Claude, use `Claude`; another assistant uses
+    its own name.
+  - `MODEL_VERSION` is the exact model identifier you are running on (for
+    example `claude-opus-4-8`), appended after a colon. If you cannot reliably
+    determine your model version, omit `:MODEL_VERSION` and emit `AGENT_NAME`
+    alone rather than guessing.
+  - An optional space-separated list of specialized analysis tools used (e.g.
+    `coccinelle sparse`) may follow. OSISM does not routinely use these, so
+    omit them unless one actually contributed.
+  - Concrete examples: `Assisted-by: Claude:claude-opus-4-8` (model known),
+    `Assisted-by: Claude` (model version unknown).
 - `Signed-off-by` is required on every commit. Obtain the name and email from `git config user.name` and `git config user.email`. The `Signed-off-by` line must always be the **very last line** of the commit message, after all other trailers.
 
 ## Step 3: Structural check
@@ -104,7 +117,7 @@ Subject line here
 Body here, wrapped at 72 characters.
 
 Relevant-Trailer: value
-AI-assisted: Claude Code
+Assisted-by: Claude:claude-opus-4-8
 Signed-off-by: Full Name <email@example.com>
 EOF
 )"

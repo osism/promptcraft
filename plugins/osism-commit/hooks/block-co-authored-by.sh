@@ -11,6 +11,6 @@ command=$(echo "$input" | jq -r '.tool_input.command // empty')
 
 if echo "$command" | grep -qi '^co-authored-by:'; then
     cat <<'EOF'
-{"decision":"block","reason":"STOP: Do not use Co-Authored-By in commit messages. OSISM commit policy requires:\n    AI-assisted: Claude Code\n    Signed-off-by: <your name> <your email>\nUse the /commit skill for the correct format."}
+{"decision":"block","reason":"STOP: Do not use Co-Authored-By in commit messages. OSISM commit policy requires:\n    Assisted-by: AGENT_NAME[:MODEL_VERSION]   (e.g. Claude:claude-opus-4-8)\n    Signed-off-by: <your name> <your email>\nUse the /commit skill for the correct format."}
 EOF
 fi
