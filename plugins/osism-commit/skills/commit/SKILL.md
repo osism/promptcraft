@@ -86,9 +86,10 @@ Signed-off-by: <user name> <user email>
     Identify yourself: if you are Claude, use `Claude`; another assistant uses
     its own name.
   - `MODEL_VERSION` is the exact model identifier you are running on (for
-    example `claude-opus-4-8`), appended after a colon. If you cannot reliably
-    determine your model version, omit `:MODEL_VERSION` and emit `AGENT_NAME`
-    alone rather than guessing.
+    example `claude-opus-4-8`), appended after a colon. Include it only when the
+    exact identifier is directly available in your runtime context. Do not
+    inspect logs or configuration solely to determine it. Otherwise, omit
+    `:MODEL_VERSION` and emit `AGENT_NAME` alone rather than guessing.
   - An optional space-separated list of specialized analysis tools used (e.g.
     `coccinelle sparse`) may follow. OSISM does not routinely use these, so
     omit them unless one actually contributed.
