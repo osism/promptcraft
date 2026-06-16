@@ -11,6 +11,7 @@ claude plugin marketplace add osism/promptcraft
 
 # Install plugins
 claude plugin install osism-commit@promptcraft
+claude plugin install osism-changelog@promptcraft
 ```
 
 ## Plugins
@@ -31,6 +32,32 @@ OpenStack-style git commits with OSISM conventions.
 - `~/.claude/skills/commit/` (replaced by the plugin)
 - Any inline Co-Authored-By hook in `~/.claude/settings.json` (replaced by the
   plugin)
+
+### osism-changelog
+
+Generate and update `CHANGELOG.md` from git history, following OSISM changelog
+conventions.
+
+**Provides:**
+
+- `/osism-changelog` skill — analyses the commits between release tags and
+  writes [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)-style entries
+  (`Added` / `Changed` / `Fixed` / `Removed` / `Dependencies`) with clickable
+  GitHub PR references, then inserts them into `CHANGELOG.md`
+
+It is the in-session equivalent of `osism/release`'s
+`generate-changelog-input.sh` — no headless batching, Claude does the analysis
+directly. Run it from within the target repository.
+
+**Usage:**
+
+```text
+/osism-changelog                 # latest v0.* tag
+/osism-changelog v0.20260319.0   # a specific tag
+/osism-changelog --auto          # every tag newer than the last documented one
+/osism-changelog --from <tag>    # every tag from <tag> onwards
+/osism-changelog --dry-run       # show the entry without writing CHANGELOG.md
+```
 
 ## Local Development and Testing
 

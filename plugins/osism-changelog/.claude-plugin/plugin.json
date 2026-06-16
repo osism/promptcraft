@@ -1,0 +1,7 @@
+{
+  "name": "osism-changelog",
+  "description": "Generate and update CHANGELOG.md from git history (OSISM conventions)",
+  "author": {
+    "name": "OSISM GmbH"
+  }
+}
