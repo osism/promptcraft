@@ -11,6 +11,12 @@
       "description": "OpenStack-style git commits with OSISM conventions",
       "category": "development",
       "source": "./plugins/osism-commit"
+    },
+    {
+      "name": "osism-changelog",
+      "description": "Generate and update CHANGELOG.md from git history",
+      "category": "development",
+      "source": "./plugins/osism-changelog"
     }
   ]
 }
